@@ -1,11 +1,17 @@
 package com.boiko.service;
 
 import com.boiko.model.Review;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
 
 public interface ReviewService {
-    Review addReview(Review review);
-    List<Review>getPage(int pageNumber, int pageSize, String pageSorting);
-    Iterable<Review>findAll();
+
+    Review saveReview(Review review);
+
+    Page<Review> findAll(int page, int size, String order);
+
+    Review findById(Long id);
+
+    void upRating(long reviewId);
+
+    void downRating(long reviewId);
 }
